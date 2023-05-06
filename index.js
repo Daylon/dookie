@@ -88,7 +88,7 @@ function push(uri, data, options) {
 
         docs[i] = ejson.deserialize(doc);
       }
-      promises.push(db.collection(collection).insert(docs));
+      promises.push(db.collection(collection).insertMany(docs));
     }
     if (get(options, 'clearConnection', null)) {
       yield db.close();
